@@ -9,6 +9,13 @@ class Hero {
     this.xp += amount;
   }
 
+  takeDamage(amount){
+  this.health -= amount; //!this fucntion may recieve the attacker's xp or attack name or both as parameter
+  }
+  heal(amount){
+    this.health += amount;  // add a maxhealth constraint ??
+  }
+
   
   get level() {
     if (this.xp < 1000) return "Iron";
@@ -26,8 +33,10 @@ class Hero {
   }
 }
 
-// Usage example
+
 const beowulf = new Hero("Beowulf", 0, 100);
 
 beowulf.gainXp(5100);
+beowulf.takeDamage(50);
+beowulf.heal(25);
 console.log(beowulf.status());
